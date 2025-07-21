@@ -1,0 +1,323 @@
+.sc-blog h1,
+.sc-blog h2,
+.sc-blog h3,
+.sc-blog h4,
+.sc-blog h5,
+.sc-blog h6,
+.sc-blog p,
+.sc-blog span {
+  margin: 0px;
+}
+.sc-blog .article-card-wrapper,
+.sc-blog .article-card,
+.sc-blog .card__content{
+  height:100%;
+}
+.sc-blog {
+  background-color: #f8f5de;
+}
+.sc-blog .container {
+  max-width: 1368px;
+  width: 100%;
+  padding: 0px 16px;
+  margin: 0 auto;
+}
+.sc-blog .tab-titles {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  margin-top: 0px;
+  list-style: none;
+  padding: 0;
+}
+.sc-blog .search-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+.sc-blog .blog-main-title {
+  font-size: 56px;
+  line-height: 70px;
+  letter-spacing: 0px;
+  color: #396140;
+  font-family: "GayaTrial";
+}
+.sc-blog .blog-search-form {
+  gap: 16px;
+  display: flex;
+  max-width: 844px;
+  width: 100%;
+  justify-content: end;
+}
+.sc-blog input.blog-search-input {
+  max-width: 692px;
+  width: 100%;
+  border-radius: 50px;
+  border: 2px solid #396140;
+  background: transparent;
+  padding: 10px 40px;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-family:"Neue Haas Grotesk Display Pro";
+}
+.sc-blog .article-img .placeholder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color:rgba(57, 97, 64, 0.1);
+}
+.sc-blog .article-img img {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center;
+}
+.sc-blog .blog-search-button {
+  background-color: #396140;
+  padding: 23px 16px;
+  max-width: 136px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  box-shadow: none;
+}
+.sc-blog .blog-search-button:hover {
+  background-color: #25422a;
+}
+.sc-blog .tab-title {
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #eee;
+  border-radius: 5px;
+}
+.sc-blog .main-blog ul li.tab-title.active {
+  color: #396140 !important;
+  font-weight: 700;
+}
+.sc-blog .tab-content .empty-content-blog {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: #396140;
+  text-transform: uppercase;
+  font-family: "Neue Haas Grotesk Display Pro";
+  text-align: center;
+  padding: 20px 0px;
+}
+.sc-blog .tab-content .blog-articles__article {
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 24px 16px;
+}
+.sc-blog .tab-content .blog-articles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.sc-blog .tab-content .article-img {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 12px 0px;
+  aspect-ratio: 2 / 1;
+  width: 100%;
+}
+.sc-blog .tab-content {
+  display: none;
+}
+.sc-blog .tab-content .article-btn-block .blog-btn {
+  display: block;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  font-family: "Neue Haas Grotesk Display Pro";
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #dc4c00;
+  border-radius: 50px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.sc-blog .tab-content .article-btn-block .blog-btn:hover {
+  background-color: #ff5800;
+}
+.sc-blog .tab-content .card__information {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:100%;
+}
+.sc-blog .tab-content .heading-tags {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sc-blog .tab-content .article-card__excerpt {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  font-family: "Neue Haas Grotesk Display Pro";
+  color: #396140;
+  margin-bottom: 12px;
+  padding: 0 8px;
+}
+.sc-blog .tab-content.active {
+  display: block;
+}
+.sc-blog .main-blog ul li.tab-title {
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #9b9d6d;
+  background: transparent;
+  border-bottom: 4px solid #e9e7cb;
+  border-radius: 0px;
+  padding: 12px;
+  width: 100%;
+  max-width: 216px;
+  text-align: center;
+}
+.sc-blog .underline-links-hover:hover a {
+  text-decoration: none;
+}
+.sc-blog .card__heading.article-title a {
+  display: block;
+  font-family: "GayaTrial";
+  color: #396140;
+  font-size: 24px;
+  line-height: 30px;
+  text-transform: capitalize;
+  letter-spacing: 0px;
+  margin-bottom: 8px;
+  padding: 0 8px;
+}
+.sc-blog .mobile-blog-block select:focus-visible,
+.sc-blog input.blog-search-input:focus-visible{
+  outline:none;
+  box-shadow:none;
+} 
+.sc-blog .tag {
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #396140;
+  width: 100%;
+  max-width: fit-content;
+  background-color: rgba(155, 157, 109, 0.24);
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 0 8px;
+}
+.main-blog ul {
+  gap: 8px;
+}
+.main-blog ul li.tab-title.active {
+  border-color: #dc4c00;
+}
+.sc-blog .mobile-blog-block {
+  display: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .sc-blog .tab-content .blog-articles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sc-blog .main-blog ul li.tab-title {
+    padding: 12px 10px;
+    max-width: 160px;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 749px) {
+  .sc-blog input.blog-search-input {
+    padding: 18px 40px;
+  }
+  .sc-blog .main-blog .card__heading.article-title a {
+    font-size: 20px !important;
+    line-height: 25px;
+  }
+  .sc-blog .search-title {
+    margin-bottom: 40px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .sc-blog .blog-search-form {
+    flex-direction: column;
+    align-items: end;
+  }
+  .sc-blog .tab-content .blog-articles {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .sc-blog .mobile-blog-block .tab-title {
+    background: #fff;
+    cursor: pointer;
+  }
+  .sc-blog .mobile-blog-block .tab-title::selection {
+    background-color: #396140;
+  }
+  .sc-blog select.mobile-blog-block option:hover {
+    background-color: #396140;
+  }
+  .sc-blog .mobile-blog-block {
+    position: relative;
+    display: block;
+  }
+  .sc-blog .mobile-blog-block select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    font-family: "Neue Haas Grotesk Display Pro";
+    margin-bottom: 24px;
+    width: 100%;
+    background: transparent;
+    padding: 16px 24px 12px;
+    border: none;
+    border-bottom: 4px solid #dc4c00;
+    color: #396140;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .sc-blog .mobile-blog-block::after {
+    content: "";
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-image: url("https://cdn.shopify.com/s/files/1/0677/8041/1645/files/down-arrow_86cb3264-36d8-47d7-a9a8-2cbd686bf6fb.svg?v=1747649417");
+    pointer-events: none;
+  }
+  .sc-blog .desktop-blog-block {
+    display: none;
+  }
+  .sc-blog .search-title {
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+  }
+}

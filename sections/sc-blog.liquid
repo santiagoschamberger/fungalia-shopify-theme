@@ -1,0 +1,324 @@
+{% style %}
+  #section-{{ section.id }} {
+     padding-top: {{ section.settings.padding-top }}px;
+     padding-bottom: {{ section.settings.padding-bottom }}px;
+     color: {{ section.settings.text_color }};
+     background-color: {{ section.settings.bg_color }};
+  }
+
+  @media only screen and (max-width: 768px) {
+    #section-{{ section.id }} {
+      padding-top: {{ section.settings.padding-top-mobile }}px;
+      padding-bottom: {{ section.settings.padding-bottom-mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<section class="sc-blog" id="section-{{ section.id }}">
+  <div class="container">
+    {% comment %}
+      <div class="main-blog page-width section-{{ section.id }}-padding">
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          {% assign custom_blog = blogs[block.settings.blog] %}
+          {% if custom_blog and custom_blog.articles.size > 0 %}
+            <div class="blog-articles-title">
+              <h2 class="blog-title">{{ custom_blog.title }}</h2>
+            </div>
+          {% else %}
+            <p>No articles available in selected blog: {{ custom_blog.title }}</p>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p>No blogs selected.</p>
+      {% endif %}
+
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          {% assign custom_blog = blogs[block.settings.blog] %}
+          {% if custom_blog and custom_blog.articles.size > 0 %}
+            <div class="blog-articles block-id-{{ block.id }}">
+    {% endcomment %}
+    {% comment %}  <h2 class="blog-title">{{ custom_blog.title }}</h2> {% endcomment %}
+
+    {% comment %}
+      {%- for article in custom_blog.articles -%}
+                  <div
+                    class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    {% if settings.animations_reveal_on_scroll %}
+                      data-cascade
+                      style="--animation-order: {{ forloop.index }};"
+                    {% endif %}
+                  >
+                    {%- render 'article-card',
+                      article: article,
+                      media_height: section.settings.image_height,
+                      media_aspect_ratio: article.image.aspect_ratio,
+                      show_image: section.settings.show_image,
+                      show_date: section.settings.show_date,
+                      show_author: section.settings.show_author,
+                      show_excerpt: true
+                    -%}
+                  </div>
+                {%- endfor -%}
+              </div>
+            {% else %}
+              <p>No articles available in selected blog: {{ custom_blog.title }}</p>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <p>No blogs selected.</p>
+        {% endif %}
+      </div>
+    {% endcomment %}
+
+    <div class="main-blog section-{{ section.id }}-padding">
+      {% if section.blocks.size > 0 %}
+        <div class="blog-tabs">
+          {% comment %}
+            <form action="/search" method="get" class="blog-search-form" role="search">
+              <input type="hidden" name="type" value="article">
+              <input
+                type="search"
+                name="q"
+                placeholder="Search blog articles..."
+                aria-label="Search blog"
+                class="blog-search-input"
+                value="{{ search.terms | escape }}"
+              >
+              <button type="submit" class="blog-search-button">Search</button>
+            </form>
+          {% endcomment %}
+
+          <div class="search-title">
+            <div class="blog-main-title">Blog</div>
+            <form
+              action="/search"
+              method="get"
+              class="blog-search-form"
+              role="search"
+              data-predictive-search-form
+            >
+              <!-- Restrict to blog articles -->
+              <input type="hidden" name="type" value="article">
+
+              <!-- Input field -->
+              <input
+                type="search"
+                name="q"
+                placeholder="Buscá por keyword"
+                aria-label="Search blog"
+                class="blog-search-input"
+                value="{{ search.terms | escape }}"
+                role="combobox"
+                aria-autocomplete="list"
+                aria-expanded="false"
+                aria-owns="predictive-search-results"
+                aria-controls="predictive-search-results"
+                aria-haspopup="listbox"
+                data-predictive-search-input
+              >
+
+              <!-- Search Button -->
+              <button type="submit" class="blog-search-button">
+                <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.7071 8.70711C25.0976 8.31658 25.0976 7.68342 24.7071 7.29289L18.3431 0.928932C17.9526 0.538408 17.3195 0.538408 16.9289 0.928932C16.5384 1.31946 16.5384 1.95262 16.9289 2.34315L22.5858 8L16.9289 13.6569C16.5384 14.0474 16.5384 14.6805 16.9289 15.0711C17.3195 15.4616 17.9526 15.4616 18.3431 15.0711L24.7071 8.70711ZM0 8V9H24V8V7H0V8Z" fill="white"/>
+                </svg>
+              </button>
+
+              <!-- Predictive Search Result Container -->
+              <div
+                id="predictive-search"
+                class="predictive-search"
+                tabindex="-1"
+                data-predictive-search
+                hidden
+              >
+                <div
+                  id="predictive-search-results"
+                  class="predictive-search__results"
+                  data-predictive-search-results
+                >
+                  <!-- Results injected by Shopify -->
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <ul class="tab-titles desktop-blog-block">
+            {% for block in section.blocks %}
+              {% assign custom_blog = blogs[block.settings.blog] %}
+              {% if custom_blog %}
+                <li class="tab-title{% if forloop.first %} active{% endif %}" data-tab="tab-{{ block.id }}">
+                  {{ custom_blog.title }}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+          <div class="mobile-blog-block">
+            <select class="tab-dropdown">
+              {% for block in section.blocks %}
+                {% assign custom_blog = blogs[block.settings.blog] %}
+                {% if custom_blog %}
+                  <option
+                    class="tab-title"
+                    value="tab-{{ block.id }}"
+                    {% if forloop.first %}
+                      selected
+                    {% endif %}
+                  >
+                    {{ custom_blog.title }}
+                  </option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="tab-contents">
+            {% for block in section.blocks %}
+              {% assign custom_blog = blogs[block.settings.blog] %}
+              {% if custom_blog and custom_blog.articles.size > 0 %}
+                <div class="tab-content{% if forloop.first %} active{% endif %}" id="tab-{{ block.id }}">
+                  <div class="blog-articles block-id-{{ block.id }}">
+                    {%- for article in custom_blog.articles -%}
+                      <div
+                        class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                        {% if settings.animations_reveal_on_scroll %}
+                          data-cascade
+                          style="--animation-order: {{ forloop.index }};"
+                        {% endif %}
+                      >
+                        {% comment %} <div class="tag">{{ custom_blog.title }}</div> {% endcomment %}
+
+                        {%- render 'article-card',
+                          article: article,
+                          media_height: section.settings.image_height,
+                          media_aspect_ratio: article.image.aspect_ratio,
+                          show_image: section.settings.show_image,
+                          show_date: section.settings.show_date,
+                          show_author: section.settings.show_author,
+                          show_excerpt: true,
+                          custom_blog: custom_blog
+                        -%}
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {% else %}
+                <div class="tab-content" id="tab-{{ block.id }}">
+                  <p class="empty-content-blog">No articles are available in the selected blog.</p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <p>No blogs selected.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Section Blog",
+  "settings": [
+     {
+        "type": "header",
+        "content": "padding settings"
+      },
+      {
+        "type": "range",
+        "id": "padding-top",
+        "label": "Top Spacing",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "default": 134
+      },
+      {
+        "type": "range",
+        "id": "padding-bottom",
+        "label": "Bottom Spacing",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "default": 108
+      },
+      {
+        "type": "range",
+        "id": "padding-top-mobile",
+        "label": "Top Mobile Spacing",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 114
+      },
+      {
+        "type": "range",
+        "id": "padding-bottom-mobile",
+        "label": "Bottom Mobile Spacing",
+        "min": 0,
+        "max": 150,
+        "step": 2,
+        "default": 100
+      }
+  ],
+   "blocks": [
+      {
+        "type": "blog",
+        "name": "Blog Block",
+        "settings": [
+          {
+            "type": "blog",
+            "id": "blog",
+            "label": "Select Blog",
+          }
+        ]
+      }
+    ],
+  "presets": [
+    {
+      "name": "Section Blog"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabTitles = document.querySelectorAll('.tab-title');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabTitles.forEach(title => {
+      title.addEventListener('click', () => {
+        const target = title.getAttribute('data-tab');
+
+        tabTitles.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        title.classList.add('active');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+
+    /* Mobile Dropdown code */
+
+    document.querySelector('.tab-dropdown').addEventListener('change', function (e) {
+      const selectedTab = e.target.value;
+
+      // Remove active class from all tab content sections
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      // Add active class to the selected tab content
+      const activeTab = document.getElementById(selectedTab);
+      if (activeTab) {
+        activeTab.classList.add('active');
+      }
+    });
+
+  });
+</script>

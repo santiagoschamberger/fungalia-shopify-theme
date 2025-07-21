@@ -1,0 +1,252 @@
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .utility-bar {
+    background-color: {{ section.settings.color_scheme }};
+  }
+  .announcement-bar__message {
+    color: {{ section.settings.color_scheme_text }};
+  }
+{% endstyle %}
+
+<div
+  class="utility-bar announcement-main"
+>
+  <div class="utility-bar__grid">
+    {%- if section.blocks.size == 1 -%}
+      <div
+        class="announcement-bar"
+        role="region"
+        aria-label="{{ 'sections.header.announcement' | t }}"
+        {{ section.blocks.first.shopify_attributes }}
+      >
+        {%- if section.blocks.first.settings.text != blank -%}
+          {%- if section.blocks.first.settings.link != blank -%}
+            <a
+              href="{{ section.blocks.first.settings.link }}"
+              class="announcement-bar__link link link--text focus-inset animate-arrow"
+            >
+          {%- endif -%}
+          <p class="announcement-bar__message h5">
+            <span>{{ section.blocks.first.settings.text | escape }}</span>
+          </p>
+          {%- if section.blocks.first.settings.link != blank -%}
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    {%- elsif section.blocks.size > 1 -%}
+      <div class="announcement-bar-marquee">
+        <div
+          class="announcebar-text"
+        >
+          {%- for block in section.blocks -%}
+            <div
+              class="announcement-bar__content"
+              role="region"
+              aria-label="{{ 'sections.header.announcement' | t }}"
+            >
+              {%- if block.settings.text != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="announcement-bar__link link link--text focus-inset animate-arrow"
+                  >
+                {%- endif -%}
+                <p class="announcement-bar__text h5">
+                  <span>{{ block.settings.text | escape }}</span>
+                </p>
+                {%- if block.settings.link != blank -%}
+                  </a>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+        <div
+          class="announcebar-text"
+        >
+          {%- for block in section.blocks -%}
+            <div
+              class="announcement-bar__content"
+              role="region"
+              aria-label="{{ 'sections.header.announcement' | t }}"
+            >
+              {%- if block.settings.text != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="announcement-bar__link link link--text focus-inset animate-arrow"
+                  >
+                {%- endif -%}
+                <p class="announcement-bar__text h5">
+                  <span>{{ block.settings.text | escape }}</span>
+                </p>
+                {%- if block.settings.link != blank -%}
+                  </a>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+        <div
+          class="announcebar-text"
+        >
+          {%- for block in section.blocks -%}
+            <div
+              class="announcement-bar__content"
+              role="region"
+              aria-label="{{ 'sections.header.announcement' | t }}"
+            >
+              {%- if block.settings.text != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="announcement-bar__link link link--text focus-inset animate-arrow"
+                  >
+                {%- endif -%}
+                <p class="announcement-bar__text h5">
+                  <span>{{ block.settings.text | escape }}</span>
+                </p>
+                {%- if block.settings.link != blank -%}
+                  </a>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+        <div
+          class="announcebar-text"
+        >
+          {%- for block in section.blocks -%}
+            <div
+              class="announcement-bar__content"
+              role="region"
+              aria-label="{{ 'sections.header.announcement' | t }}"
+            >
+              {%- if block.settings.text != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="announcement-bar__link link link--text focus-inset animate-arrow"
+                  >
+                {%- endif -%}
+                <p class="announcement-bar__text h5">
+                  <span>{{ block.settings.text | escape }}</span>
+                </p>
+                {%- if block.settings.link != blank -%}
+                  </a>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- if request.design_mode -%}
+        <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  /* announcement bar */
+.announcement-main {
+  overflow: hidden;
+}
+.announcement-bar-marquee {
+  display: flex;
+  align-items: center;
+  animation: marqueeSlide 30s linear infinite;
+  gap:3px;
+}
+.announcebar-text {
+  display: flex;
+  gap:3px;
+  align-items: center;
+}
+.announcement-bar__content {
+  position: relative;
+}
+.announcement-bar__content span {
+   font-family: "GayaTrial";
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 0px;
+  white-space: nowrap;
+  color:{{ section.settings.color_scheme_text }};
+}
+p.announcement-bar__text.h5 {
+  margin: 12px 0px;
+}
+@keyframes marqueeSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media only screen and (max-width: 768px) {
+  p.announcement-bar__text.h5 {
+    margin: 8px 0px;
+  }
+  .announcement-bar__content span {
+    font-size:16px;
+    line-height:20px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "class": "announcement-bar-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "color_scheme",
+      "label": "Background Color"
+    },
+    {
+      "type": "color",
+      "id": "color_scheme_text",
+      "label": "Label Color"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.announcement-bar.presets.name",
+      "blocks": [
+        {
+          "type": "announcement"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

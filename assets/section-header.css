@@ -1,0 +1,185 @@
+.main-header .header__menu-item,
+.main-header .header__heading-link {
+  padding: 0px;
+}
+.main-header .list-menu__item {
+  transition: all 0.4s ease;
+}
+.main-header .header__menu-item span {
+  font-size: 20px;
+  font-family: "Neue Haas Grotesk Display Pro";
+  padding: 8px 9px 8px 33px;
+  line-height: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  color: #396140;
+  font-weight: 400;
+  border-bottom: 1px solid transparent;
+  position: relative;
+  transition: all 0.4s ease;
+}
+.main-header .header__menu-item span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0px;
+  background-image: url("https://cdn.shopify.com/s/files/1/0605/6984/5803/files/orange-star.svg?v=1747214740");
+  background-repeat: no-repeat;
+  width: 23px;
+  height: 23px;
+  background-size: contain;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.main-header .list-menu--inline {
+  display: flex;
+  /* gap: 24px; */
+  gap: 8px;
+  align-items: center;
+}
+.main-header .header {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.main-header .header__menu-item:hover span,
+.header__active-menu-item {
+  text-decoration: none;
+}
+.main-header .header__menu-item span:hover,
+.main-header .header__menu-item span.header__active-menu-item {
+  border-bottom: 1px solid #396140;
+}
+.main-header .header__menu-item:hover span:before,
+.main-header .header__menu-item span.header__active-menu-item:before {
+  opacity: 1;
+}
+.main-header .header__icon .svg-wrapper,
+.main-header .header__icon,
+.main-header .header__icon--cart .icon {
+  width: 32px;
+  height: 32px;
+}
+.main-header .header__icons {
+  padding: 0px;
+  gap: 48px;
+}
+.main-header .header__inline-menu,
+.main-header .header__icon--cart {
+  margin: 0px;
+}
+.main-header ul.list-menu.list-menu--inline li:last-child,
+.main-header ul.list-menu.list-menu--inline li:nth-child(5) {
+  display: none;
+}
+@media only screen and (max-width: 1180px) {
+  .main-header .header__menu-item span {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 8px 9px 8px 25px;
+  }
+  .main-header .header__menu-item span:before {
+    height: 20px;
+    width: 20px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .main-header .header__menu-item span {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 8px 9px 8px 22px;
+  }
+  .main-header .header__menu-item span:before {
+    height: 18px;
+    width: 18px;
+  }
+  .main-header .header__icons {
+    gap: 32px;
+  }
+}
+@media only screen and (max-width: 989px) {
+  .main-header ul.list-menu.list-menu--inline li:last-child,
+  .main-header ul.list-menu.list-menu--inline li:nth-child(5) {
+    display: none;
+  }
+  .main-header .header {
+    grid-template-areas: "heading left-icons icons";
+  }
+  .main-header header-drawer {
+    justify-self: center;
+    margin-left: 0px;
+  }
+  .main-header .menu-drawer-container.menu-opening .header__icon--menu {
+    width: 90px;
+  }
+  .main-header .header__icon--menu {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    height: auto;
+    width: 70px;
+    border-bottom: 1px solid #396140;
+    padding-bottom: 8px;
+  }
+  .main-header .header__icon--menu .icon {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    width: auto;
+    height: auto;
+    text-transform: uppercase;
+    font-family: "Neue Haas Grotesk Display Pro";
+    margin-left: 24px;
+    transform: none;
+  }
+  .main-header .header__icon:hover .icon,
+  .main-header .modal__close-button:hover .icon,
+  .main-header details:not([open]) > .header__icon--menu .icon-close,
+  .main-header details[open] > .header__icon--menu .icon-hamburger {
+    transform: none;
+  }
+  .main-header .menu-drawer__menu-item {
+    padding: 20px 9px;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #396140;
+  }
+  .main-header .menu-drawer__navigation {
+    padding: 16px 14px 16px 18px;
+  }
+  .main-header .menu-drawer__menu-item--active,
+  .main-header .menu-drawer__menu-item:focus,
+  .main-header .menu-drawer__close-button:focus,
+  .main-header .menu-drawer__menu-item:hover,
+  .main-header .menu-drawer__close-button:hover {
+    background-color: transparent;
+    font-weight: 600;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .main-header
+    a.header__icon.header__icon--account.link.focus-inset.small-hide {
+    display: none;
+  }
+  .main-header .header__heading-logo-wrapper {
+    width: 158px;
+  }
+  .main-header .header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .main-header header-drawer {
+    order: 2;
+  }
+  .main-header .header__icons {
+    order: 3;
+    display: block;
+  }
+  .main-header .header__menu-item {
+    order: 1;
+  }
+}

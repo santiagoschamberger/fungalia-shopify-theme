@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /collections/
+Allow: /products/
+Allow: /pages/
+Allow: /blogs/
+
+# Sitemap location
+Sitemap: {{ shop.url }}/sitemap.xml
+
+# Block unnecessary crawling
+Disallow: /cart
+Disallow: /checkout/
+Disallow: /account/
+Disallow: /admin/
+Disallow: /orders/
+Disallow: /search?*
+Disallow: /collections/*?*
+Disallow: /products/*?*
+
+# Allow important assets for homepage
+Allow: /assets/
+Allow: /*.js
+Allow: /*.css
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.webp
+
+# Priority crawling for homepage
+Crawl-delay: 0 

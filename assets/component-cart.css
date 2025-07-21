@@ -1,0 +1,408 @@
+.cart-item__quantity-wrapper {
+  align-items: center;
+}
+
+.cart-item__price-wrapper span {
+  font-weight: 400;
+}
+
+.cart-item__price-wrapper span,
+.quantity__input {
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 400;
+  font-size: 18px;
+  opacity: 1;
+}
+
+.cart-item__quantity-wrapper a.button.button--tertiary:hover {
+  color: #396140 !important;
+}
+
+.cart-item__quantity-wrapper a.button.button--tertiary {
+  padding: 0;
+  background-color: transparent;
+  color: #396140;
+  font-size: 0px;
+  line-height: 0px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.quantity:after {
+  border-radius: 5px;
+}
+
+.cart__blocks .totals h2.totals__total {
+  font-family: GayaTrial;
+  font-size: 24px;
+  line-height: 22px;
+  font-weight: 500;
+  color: rgb(57, 97, 64);
+}
+
+.totals__total-value {
+  font-size: 18px !important;
+  line-height: 22px !important;
+  color: #396140 !important;
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 400;
+}
+
+.tax-note {
+  margin: 20px 0px;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 400;
+  color: rgb(57, 97, 64);
+}
+
+.cart__blocks {
+  width: 100% !important;
+  max-width: 470px;
+}
+
+.cart__ctas button {
+  padding: 20px;
+  border-radius: 100px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  font-family: "GayaTrial";
+  letter-spacing: 0.32px;
+  text-transform: capitalize;
+  max-width: 250px;
+  transition: all 0.3s;
+}
+
+.cart__ctas button:hover {
+  background-color: #25422a;
+}
+
+.cart__ctas button::after {
+  box-shadow: unset !important;
+}
+
+.cart__ctas {
+  justify-content: end;
+}
+
+.cart {
+  position: relative;
+  display: block;
+}
+
+.cart__empty-text,
+.is-empty .cart__contents,
+cart-items.is-empty .title-wrapper-with-link,
+.is-empty .cart__footer {
+  display: none;
+}
+
+.is-empty h1.cart__empty-text {
+  font-family: GayaTrial;
+  font-weight: 400;
+  line-height: 90px;
+  letter-spacing: 0px;
+  font-size: 88px;
+  text-transform: capitalize;
+  margin-top: 0px;
+  margin-bottom: 70px;
+}
+
+@media screen and (max-width: 1024px) {
+  .is-empty h1.cart__empty-text {
+    font-size: 64px;
+    line-height: 70px;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .is-empty h1.cart__empty-text {
+    font-size: 48px;
+    line-height: 58px;
+    margin-bottom: 30px;
+  }
+
+  .cart__warnings {
+    padding: 6rem 0 2rem;
+  }
+
+  .cart__login-paragraph {
+    margin-top: 0.8rem;
+    font-size: 16px !important;
+  }
+
+  .cart__login-paragraph a {
+    font-size: 16px !important;
+  }
+
+  .cart-item__details .product-option {
+    font-size: 15px;
+    line-height: 15px;
+  }
+
+  .cart-item__price-wrapper span {
+    font-size: 15px;
+    line-height: 15px;
+  }
+
+  .quantity {
+    width: 12rem;
+    min-height: 40px;
+  }
+
+  .totals__total-value {
+    font-size: 16px !important;
+  }
+
+  .cart__blocks .totals h2.totals__total {
+    font-size: 20px;
+  }
+}
+
+a.button {
+  color: #fff;
+  max-width: 230px;
+  padding: 21px;
+  background-color: #396140;
+  border-radius: 40px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  font-family: "GayaTrial";
+  letter-spacing: 0.32px;
+  text-transform: capitalize;
+  transition: all 0.3s;
+}
+
+a.button:hover {
+  background-color: #25422a;
+}
+
+a.button::after {
+  box-shadow: unset !important;
+}
+
+.is-empty .cart__empty-text,
+.is-empty .cart__warnings {
+  display: block;
+}
+
+.cart__warnings {
+  display: none;
+  text-align: center;
+  padding: 6rem 0 2rem;
+}
+
+.cart__contents > * + * {
+  margin-top: 2.5rem;
+}
+
+.cart__login-title {
+  margin: 3rem 0 0.5rem;
+  font-family: GayaTrial;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0px;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.cart__login-paragraph {
+  margin-top: 0.8rem;
+  margin-bottom: 0px;
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 400;
+  font-size: 20px;
+  color: #396140;
+}
+
+.cart__login-paragraph a {
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 400;
+  font-size: 20px;
+  color: #396140;
+}
+
+@media screen and (min-width: 990px) {
+  .cart__warnings {
+    padding: 80px 0px 80px 0px;
+  }
+
+  .cart__empty-text {
+    margin: 0 0 3rem;
+  }
+}
+
+cart-items {
+  display: block;
+}
+
+.cart__items {
+  position: relative;
+  padding-bottom: 3rem;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.cart__items--disabled {
+  pointer-events: none;
+}
+
+.cart__footer-wrapper:last-child .cart__footer {
+  padding-bottom: 5rem;
+}
+
+.cart__footer > div:only-child {
+  margin-left: auto;
+}
+
+.cart__footer > * + * {
+  margin-top: 6.5rem;
+}
+
+.cart__footer .discounts {
+  margin-bottom: 1rem;
+}
+
+.cart__note {
+  height: fit-content;
+  top: 2.5rem;
+}
+
+.cart__note label {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  line-height: 1;
+  height: 1.8rem;
+  top: -3rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.cart__note .field__input {
+  height: 100%;
+  position: relative;
+  border-radius: var(--inputs-radius);
+  padding: 1rem 2rem;
+}
+
+.cart__note .text-area {
+  resize: vertical;
+}
+
+.cart__note:after,
+.cart__note:hover.cart__note:after,
+.cart__note:before,
+.cart__note:hover.cart__note:before,
+.cart__note .field__input:focus,
+.cart__note .field__input {
+  border-bottom-right-radius: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .cart__items {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding-bottom: 4rem;
+  }
+
+  .cart__contents > * + * {
+    margin-top: 0;
+  }
+
+  .cart__items + .cart__footer {
+    grid-column: 2;
+  }
+
+  .cart__footer {
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+  }
+
+  .cart__footer-wrapper:last-child {
+    padding-top: 0;
+  }
+
+  .cart__footer > * {
+    width: 35rem;
+  }
+
+  .cart__footer > * + * {
+    margin-left: 4rem;
+    margin-top: 0;
+  }
+}
+
+.cart__ctas button {
+  width: 100%;
+}
+
+.cart__ctas > * + * {
+  margin-top: 1rem;
+}
+
+.cart__update-button {
+  margin-bottom: 1rem;
+}
+
+.cart__dynamic-checkout-buttons {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.cart__dynamic-checkout-buttons:has(.dynamic-checkout__content:empty) {
+  margin: 0;
+}
+
+.cart__blocks > * + * {
+  margin-top: 1rem;
+}
+
+.cart-note__label {
+  display: inline-block;
+  margin-bottom: 1rem;
+  line-height: calc(1 + 1 / var(--font-body-scale));
+}
+
+.tax-note {
+  margin: 2.2rem 0 1.6rem auto;
+  text-align: center;
+  display: block;
+}
+
+.cart__checkout-button {
+  max-width: 36rem;
+}
+
+.cart__ctas {
+  text-align: center;
+}
+
+@media screen and (min-width: 750px) {
+  .cart-note {
+    max-width: 35rem;
+  }
+
+  .cart__update-button {
+    margin-bottom: 0;
+    margin-right: 0.8rem;
+  }
+
+  .tax-note {
+    margin-bottom: 2.2rem;
+    text-align: right;
+  }
+
+  [data-shopify-buttoncontainer] {
+    justify-content: flex-end;
+  }
+
+  .cart__ctas {
+    display: flex;
+    gap: 1rem;
+  }
+}

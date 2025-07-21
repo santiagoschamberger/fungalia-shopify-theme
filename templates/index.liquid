@@ -43,7 +43,7 @@
   "description": {{ shop.description | default: "La alternativa al café que estabas buscando. Infusiones con hongos funcionales para ayudarte a ser tu mejor versión. 100% natural y vegano." | json }},
   "potentialAction": {
     "@type": "SearchAction",
-    "target": {{ request.origin | append: "/search?q={search_term_string}" | json }},
+    "target": "{{ request.origin }}/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   },
   "sameAs": [

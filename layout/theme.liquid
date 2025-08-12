@@ -21,16 +21,19 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-    <title>
-        {{ page_title }}
-    </title>
+<title>
+  {%- if template.name == 'index' -%}
+    Fungalia Blends | Hongos Adaptógenos para Energía y Bienestar
+  {%- else -%}
+    {{ page_title }}
+  {%- endif -%}
+</title>
 
-    {%- if template.name == 'index' -%}
-      <meta name="description" content="La alternativa al café que estabas buscando. Infusiones con hongos funcionales para ayudarte a ser tu mejor versión. 100% natural y vegano.">
-    {%- elsif page_description -%}
-      <meta name="description" content="{{ page_description | escape }}">
-    {%- endif -%}
-
+{%- if template.name == 'index' -%}
+  <meta name="description" content="Descubrí Fungalia Blends: hongos adaptógenos que potencian tu energía, foco y bienestar sin cafeína.">
+{%- elsif page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+{%- endif -%}
     {% render 'meta-tags' %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>

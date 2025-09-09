@@ -550,7 +550,8 @@
     "checkout": {
       "contact": {
         "company_label": "DNI / CUIT",
-        "civic_number_warning": "Ingresa la calle y altura de tu domicilio"
+        "civic_number_warning": "Ingresa la calle y altura de tu domicilio",
+        "address2_label": "Casa, departamento, etc."
       },
       "field_errors": {
         "address_company_blank": "Introduce tu número de documento"

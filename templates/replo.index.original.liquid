@@ -1,0 +1,107 @@
+{% comment %}
+  Enhanced Homepage Template with Correct Replo Content (ddf37) & SEO Optimization
+  - WebSite structured data for search engines
+  - Organization structured data for business info  
+  - BreadcrumbList for navigation
+  - Proper meta tags for social sharing
+{% endcomment %}
+
+{%- liquid
+  assign social_image = settings.share_image | default: shop.brand.cover_image
+  if social_image
+    assign social_image_url = social_image | image_url: width: 1200
+  endif
+-%}
+
+{% comment %} SEO Meta Tags {% endcomment %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ page_title | default: shop.name }}">
+<meta property="og:description" content="{{ page_description | default: shop.description | default: 'La alternativa al café que estabas buscando. Infusiones con hongos funcionales para ayudarte a ser tu mejor versión. 100% natural y vegano.' | escape }}">
+<meta property="og:url" content="{{ request.origin }}{{ request.path }}">
+{%- if social_image_url -%}
+<meta property="og:image" content="{{ social_image_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{%- endif -%}
+<meta property="og:site_name" content="{{ shop.name }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title | default: shop.name }}">
+<meta name="twitter:description" content="{{ page_description | default: shop.description | default: 'La alternativa al café que estabas buscando. Infusiones con hongos funcionales para ayudarte a ser tu mejor versión. 100% natural y vegano.' | escape }}">
+{%- if social_image_url -%}
+<meta name="twitter:image" content="{{ social_image_url }}">
+{%- endif -%}
+
+{% comment %} Structured Data {% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ shop.name | json }},
+  "alternateName": "Fungalia",
+  "url": {{ request.origin | json }},
+  "description": {{ shop.description | default: "La alternativa al café que estabas buscando. Infusiones con hongos funcionales para ayudarte a ser tu mejor versión. 100% natural y vegano." | json }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ request.origin }}/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "sameAs": [
+    {{ settings.social_instagram_link | json }},
+    {{ settings.social_facebook_link | json }},
+    {{ settings.social_twitter_link | json }},
+    {{ settings.social_youtube_link | json }}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ shop.name | json }},
+  "url": {{ request.origin | json }},
+  {% if settings.logo %}
+    "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+  {% endif %}
+  "description": {{ shop.description | default: "La alternativa al café que estabas buscando. Infusiones con hongos funcionales para ayudarte a ser tu mejor versión. 100% natural y vegano." | json }},
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "url": {{ request.origin | append: "/pages/contact" | json }}
+  },
+  "sameAs": [
+    {{ settings.social_instagram_link | json }},
+    {{ settings.social_facebook_link | json }},
+    {{ settings.social_twitter_link | json }},
+    {{ settings.social_youtube_link | json }}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": {{ request.origin | json }}
+    }
+  ]
+}
+</script>
+
+{% comment %} Correct Replo Homepage Content (ddf37) {% endcomment %}
+
+    
+    
+    <div
+      id="replo-fullpage-element"
+      data-runtime-version="30d2a8c0-6659-11f0-9823-4109370ddd31"
+      style="display: block !important"
+    >
+      {% include "reploChunk.d241e5d4-a3ec-4328-8e11-a261610ddf37.0" %}{% include "reploChunk.d241e5d4-a3ec-4328-8e11-a261610ddf37.1" %}
+    </div>

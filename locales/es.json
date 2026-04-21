@@ -551,7 +551,9 @@
       "contact": {
         "company_label": "DNI / CUIT",
         "civic_number_warning": "Ingresa la calle y altura de tu domicilio",
-        "address2_label": "Casa, departamento, etc."
+        "address2_label": "Casa, departamento, etc.",
+        "address_title": "Dirección Completa (Calle y número)",
+        "address1_label": "Dirección Completa (Calle y número)"
       },
       "field_errors": {
         "address_company_blank": "Introduce tu número de documento"

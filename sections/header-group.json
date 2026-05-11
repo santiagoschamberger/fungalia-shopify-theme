@@ -14,24 +14,24 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_3AzabY": {
+          "type": "announcement",
+          "settings": {
+            "text": "Llegaron los HOT DAYS, aplica el código HOTFUNGALIA para un 15% off ---",
+            "link": ""
+          }
+        },
         "announcement_CkGTEg": {
           "type": "announcement",
           "settings": {
             "text": "",
             "link": "https://fungaliablends.com/discount/OTONO15"
           }
-        },
-        "announcement_WwL9bB": {
-          "type": "announcement",
-          "settings": {
-            "text": "Envíos gratis en CABA y GBA a partir de dos Fungalias ---",
-            "link": "https://www.instagram.com/fungalia.blends/"
-          }
         }
       },
       "block_order": [
-        "announcement_CkGTEg",
-        "announcement_WwL9bB"
+        "announcement_3AzabY",
+        "announcement_CkGTEg"
       ],
       "settings": {
         "color_scheme": "#9b9d6d",

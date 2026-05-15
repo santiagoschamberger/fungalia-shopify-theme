@@ -14,10 +14,10 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_3AzabY": {
+        "announcement_yeDdrw": {
           "type": "announcement",
           "settings": {
-            "text": "Llegaron los HOT DAYS, aplica el código HOTFUNGALIA para un 15% off ---",
+            "text": "",
             "link": ""
           }
         },
@@ -30,7 +30,7 @@
         }
       },
       "block_order": [
-        "announcement_3AzabY",
+        "announcement_yeDdrw",
         "announcement_CkGTEg"
       ],
       "settings": {
